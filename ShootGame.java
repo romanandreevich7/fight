@@ -9,7 +9,6 @@ public class ShootGame {
     while (red.health > 0 && green.health > 0) {
         red.choosePosistion();
         System.out.println("Red position is " + red.choosePosistion());
-        System.out.println(green.shootX());
         if (green.shootX() == red.choosePosistion())
         {
             red.health = red.health - green.shootY();
