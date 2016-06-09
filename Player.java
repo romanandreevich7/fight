@@ -19,9 +19,9 @@ public class Player {
         return shoot;
     }
 
-    public Map <String, Integer> body ()
+    public int shootY ()
     {
-        Map<String, Integer> inj = new HashMap<String, Integer>();
+        Map<String, Integer> inj = new HashMap<>();
         inj.put("head",100);
         inj.put("rShoulder",10);
         inj.put("lShoulder",10);
@@ -30,7 +30,10 @@ public class Player {
         inj.put("rHand",10);
         inj.put("stomach",50);
 
-        return inj;
+        int shootY = inj.get(bodyPart());
+        return shootY;
+
+
     }
 
     public String bodyPart() {
@@ -50,20 +53,6 @@ public class Player {
 
     }
 
-    public int shootY () {
-
-        Map<String, Integer> shootMap = body();
-
-        int shootY = 0;
-
-        for (Map.Entry<String, Integer> pair : shootMap.entrySet())
-        {
-            String key = pair.getKey();
-            shootY = pair.getValue();
-
-        }
-        return shootY;
-    }
 }
 
 
