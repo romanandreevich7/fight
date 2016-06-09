@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.HashMap.*;
+
 
 /**
  * Created by roman on 5/28/16.
@@ -10,18 +9,33 @@ public class Player {
 
     double health = 100;
 
-    public static int choosePosistion ()
-    {
-        int positionX = (int)Math.random()*6;
+    public  int choosePosistion() {
+        int positionX = (int) (Math.random() * 6);
         return positionX;
     }
 
-    public int shootX () {
-        int shoot = (int)Math.random()*6;
+    public int shootX() {
+        int shoot = (int) (Math.random() * 6);
         return shoot;
     }
-    public int shootY () {
-        int shoot = (int)Math.random()*7;
+
+    public Map <String, Integer> body ()
+    {
+        Map<String, Integer> inj = new HashMap<String, Integer>();
+        inj.put("head",100);
+        inj.put("rShoulder",10);
+        inj.put("lShoulder",10);
+        inj.put("chest",70);
+        inj.put("lHand",10);
+        inj.put("rHand",10);
+        inj.put("stomach",50);
+
+        return inj;
+    }
+
+    public String bodyPart() {
+
+        int shoot = (int) (Math.random() * 7);
         ArrayList<String> bodyList = new ArrayList<String>();
         bodyList.add("head");
         bodyList.add("rShoulder");
@@ -32,17 +46,28 @@ public class Player {
         bodyList.add("stomach");
         String part = bodyList.get(shoot);
 
-        HashMap <String, Integer> inj = new HashMap<String, Integer>();
-        inj.put ("head", 100);
-        inj.put ("rShoulder", 10);
-        inj.put ("lShoulder", 10);
-        inj.put ("chest", 70);
-        inj.put ("lHand", 10);
-        inj.put ("rHand", 10);
-        inj.put ("stomach", 50);
+        return part;
 
-        shoot = inj.get(part);
+    }
 
-        return shoot;
+    public int shootY () {
+
+        Map<String, Integer> shootMap = body();
+
+        int shootY = 0;
+
+        for (Map.Entry<String, Integer> pair : shootMap.entrySet())
+        {
+            String key = pair.getKey();
+            shootY = pair.getValue();
+
+        }
+        return shootY;
     }
 }
+
+
+
+
+
+
