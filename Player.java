@@ -19,6 +19,23 @@ public class Player {
         return shoot;
     }
 
+    public String bodyPart() {
+
+        int shoot = (int) (Math.random() * 7);
+        ArrayList<String> bodyList = new ArrayList<String>();
+        bodyList.add("head");
+        bodyList.add("rShoulder");
+        bodyList.add("lShoulder");
+        bodyList.add("chest");
+        bodyList.add("lHand");
+        bodyList.add("rHand");
+        bodyList.add("stomach");
+        String part = bodyList.get(shoot);
+
+        return part;
+
+    }
+
     public int shootY ()
     {
         Map<String, Integer> inj = new HashMap<>();
@@ -36,22 +53,7 @@ public class Player {
 
     }
 
-    public String bodyPart() {
 
-        int shoot = (int) (Math.random() * 7);
-        ArrayList<String> bodyList = new ArrayList<String>();
-        bodyList.add("head");
-        bodyList.add("rShoulder");
-        bodyList.add("lShoulder");
-        bodyList.add("chest");
-        bodyList.add("lHand");
-        bodyList.add("rHand");
-        bodyList.add("stomach");
-        String part = bodyList.get(shoot);
-
-        return part;
-
-    }
 
 }
 
