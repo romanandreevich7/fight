@@ -9,30 +9,28 @@ public class ShootGame {
         while (red.health > 0 && green.health > 0) {
 
             System.out.println("_________Green is shooting__________");
-
-            red.choosePosistion();
-            System.out.println("Red position is " + red.choosePosistion());
-            green.shootX();
-
-            if (green.shootX() == red.choosePosistion()) {
-                System.out.println("Green hits " + green.bodyPart());
-                red.health = red.health - green.shootY();
-
-            } else {
-                System.out.println("Green missing!");
-            }
+            green.shootMethod();
+            System.out.println("Red position is " + red.position());
+                if (green.shoot == red.position()) {
+                    red.health = red.health - green.injury();
+                    System.out.println("Green hits " + green.bodyMap());
+                } else {
+                    System.out.println("Green missing!");
+                }
             System.out.println("Red player health is " + red.health);
 
-            System.out.println("__________Red is shooting__________");
-
-            green.choosePosistion();
-            System.out.println("Green position is " + green.choosePosistion());
-            red.shootX();
-            if (red.shootX() == green.choosePosistion()) {
-                System.out.println("Red hits " + red.bodyPart());
-                green.health = green.health - red.shootY();
-
+            if (red.health != 0) {
+                System.out.println("__________Red is shooting__________");
+                red.shootMethod();
+                System.out.println("Green position is " + green.position());
             } else {
+                break;
+            }
+
+            if (red.shoot == green.position()) {
+                    green.health = green.health - red.injury();
+                    System.out.println("Red hits " + red.bodyMap());
+                } else {
                 System.out.println("Red missing!");
             }
             System.out.println("Green player health is " + green.health);
