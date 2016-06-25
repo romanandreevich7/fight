@@ -23,34 +23,20 @@ public class Player {
     }
 
 
-    public String bodyPart = bodyMap();
-    public String bodyMap() {
-
-        ArrayList<String> bodyList = new ArrayList<String>();
-        bodyList.add("head");
-        bodyList.add("rShoulder");
-        bodyList.add("lShoulder");
-        bodyList.add("chest");
-        bodyList.add("lHand");
-        bodyList.add("rHand");
-        bodyList.add("stomach");
-        String part = bodyList.get(shoot);
-        return part;
-    }
-
-    public int injury ()
+    public BodyPart shotPart = shot();
+    public BodyPart shot ()
     {
-       HashMap<String,Integer> injury = new HashMap<>();
-        injury.put("head",100);
-        injury.put("rShoulder",10);
-        injury.put("lShoulder",10);
-        injury.put("chest",70);
-        injury.put("lHand",10);
-        injury.put("rHand",10);
-        injury.put("stomach",50);
+       ArrayList<BodyPart> injury = new ArrayList<>();
+        injury.add(new BodyPart(100, "head"));
+        injury.add(new BodyPart (10, "rShoulder"));
+        injury.add(new BodyPart(10, "lShoulder"));
+        injury.add(new BodyPart (70, "chest"));
+        injury.add(new BodyPart(10, "lHand"));
+        injury.add(new BodyPart(10, "rHand"));
+        injury.add(new BodyPart(50, "stomach"));
 
-        int shootY = injury.get(bodyPart);
-        return shootY;
+        BodyPart shot = injury.get(shoot);
+        return shot;
 
 
     }

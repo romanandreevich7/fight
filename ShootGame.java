@@ -10,10 +10,11 @@ public class ShootGame {
 
             System.out.println("_________Green is shooting__________");
             green.shootMethod();
+            green.shot();
             System.out.println("Red position is " + red.position());
                 if (green.shoot == red.position()) {
-                    red.health = red.health - green.injury();
-                    System.out.println("Green hits " + green.bodyMap());
+                    red.health = red.health - green.shotPart.injuryValue;
+                    System.out.println("Green hits " + green.shotPart.name);
                 } else {
                     System.out.println("Green missing!");
                 }
@@ -22,14 +23,15 @@ public class ShootGame {
             if (red.health != 0) {
                 System.out.println("__________Red is shooting__________");
                 red.shootMethod();
+                red.shot();
                 System.out.println("Green position is " + green.position());
             } else {
                 break;
             }
 
             if (red.shoot == green.position()) {
-                    green.health = green.health - red.injury();
-                    System.out.println("Red hits " + red.bodyMap());
+                    green.health = green.health - red.shotPart.injuryValue;
+                    System.out.println("Red hits " + red.shotPart.name);
                 } else {
                 System.out.println("Red missing!");
             }
