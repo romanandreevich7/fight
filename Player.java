@@ -9,22 +9,30 @@ public class Player {
 
     int health = 100;
 
-
-    public int position () {
+    /**
+     * Sets the number of Player`s position.
+     * @return returns the number of Player`s position.
+     */
+    public int numberOfPosition () {
         int a = (int) (Math.random() * 6);
         return a;
     }
 
-
+    /*
+    shootMethod generates and returns a random number from 0 to 6 to choose from injury ArrayList what part
+    of enemy`s body to shoot.
+    */
     public int shoot = shootMethod();
     public int shootMethod () {
         int b  = (int) (Math.random() * 6);
         return b;
     }
 
-
-    public BodyPart shotPart = shot();
-    public BodyPart shot ()
+    /**
+     * shootInBody() chooses, what part of enemy`s body is shot and returns object(type BodyPart) from injury ArrayList.
+     */
+    public BodyPart shootedPart = shootInBody();
+    public BodyPart shootInBody ()
     {
        ArrayList<BodyPart> injury = new ArrayList<>();
         injury.add(new BodyPart(100, "head"));
@@ -37,8 +45,6 @@ public class Player {
 
         BodyPart shot = injury.get(shoot);
         return shot;
-
-
     }
 
 

@@ -2,6 +2,7 @@
  * Created by roman on 6/25/16.
  */
 public class BodyPart {
+
         int injuryValue;
         String name;
 
